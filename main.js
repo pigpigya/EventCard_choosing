@@ -1,6 +1,9 @@
 var cards = ["1", "2", "3"];
-var choose = cards.length;
+var choose = 0;
 var ranNum = cards.length;
+var str = 0;
+
+cards = getRandom(cards);
 
 function PickCard() {
   buttonFont = document.getElementById("randomButton");
@@ -11,13 +14,14 @@ function PickCard() {
     console.log("wash");
   }
   else {
+    str = 1;
     console.log(cards);
     var card = cards[choose];
     var card_div = document.getElementById("card");
     card_div.innerHTML = `<img src='images/${card}.jpg' alt='Playing Card'>`;
     choose++;
   }
-  
+
   if (choose == cards.length) {
     buttonFont.innerHTML = "洗牌";
   }
