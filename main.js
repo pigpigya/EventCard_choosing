@@ -1,11 +1,31 @@
-function selectCard(){
-    var cards1 = ["1", "2", "3"];
-    var card_n1 = cards1 [getRandom(0,3)];
-    var card = card_n1;
-    console.log( card  );
+var cards = ["1", "2", "3"];
+var choose = cards.length;
+var ranNum = cards.length;
+
+function PickCard() {
+  console.log(choose)
+  if (choose == cards.length) {
+    cards = getRandom(cards);
+    choose = 0;
+    console.log("wash");
+  }
+  else {
+    console.log(cards);
+    var card = cards[choose];
     var card_div = document.getElementById("card");
-    card_div.innerHTML =  `<img src='images/${card}.jpg' alt='Playing Card'>`;
+    card_div.innerHTML = `<img src='images/${card}.jpg' alt='Playing Card'>`;
+    choose++;
   }
-  function getRandom(min, max) { //  min <= x < max, x是整數亂數
-    return Math.floor(Math.random() * (max - min) ) + min;
+  
+
+}
+function getRandom(cards) {
+  var ranNum = cards.length;
+  var ranCards = [];
+  for (var i = 0; i < ranNum; i++) {
+    var ran = Math.floor(Math.random() * (cards.length - i));
+    ranCards.push(cards[ran]);
+    cards[ran] = cards[cards.length - i - 1];
   }
+  return ranCards;
+}

@@ -1,6 +1,7 @@
 var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var i = arr.length;
 var ranNum = arr.length;
+
 function PickCard(){
     if (i == arr.length) {
         arr = wash(arr);
