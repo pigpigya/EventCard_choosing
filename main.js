@@ -3,8 +3,9 @@ var choose = cards.length;
 var ranNum = cards.length;
 
 function PickCard() {
+  buttonFont = document.getElementById("randomButton");
   console.log(choose)
-  if (choose == cards.length) {
+  if (choose == cards.length) {    
     cards = getRandom(cards);
     choose = 0;
     console.log("wash");
@@ -17,6 +18,12 @@ function PickCard() {
     choose++;
   }
   
+  if (choose == cards.length) {
+    buttonFont.innerHTML = "洗牌";
+  }
+  else {
+    buttonFont.innerHTML = "抽牌";
+  }
 
 }
 function getRandom(cards) {
