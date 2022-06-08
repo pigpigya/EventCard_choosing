@@ -27,8 +27,8 @@ function PickCard() {
   }
 
   if (choose == cards.length) {
-    buttonFont.innerHTML = "";
-    cardName.innerHTML = card;
+    buttonFont.innerHTML = "洗牌";
+    cardName.innerHTML = "";
     card_div.innerHTML = `<img src = '事件卡/back.jpg' alt='Playing Card'>'`
   }
   else {
