@@ -10,6 +10,7 @@ cards = getRandom(cards);
 
 function PickCard() {
   buttonFont = document.getElementById("randomButton");
+  cardName = document.getElementById("cardName");
   console.log(choose)
   if (choose == cards.length) {    
     cards = getRandom(cards);
@@ -26,10 +27,13 @@ function PickCard() {
   }
 
   if (choose == cards.length) {
-    buttonFont.innerHTML = "洗牌";
+    buttonFont.innerHTML = "";
+    cardName.innerHTML = card;
+    card_div.innerHTML = `<img src = '事件卡/back.jpg' alt='Playing Card'>'`
   }
   else {
     buttonFont.innerHTML = "抽牌";
+    cardName.innerHTML = card;
   }
 
 }
