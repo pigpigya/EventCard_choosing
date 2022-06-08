@@ -4,36 +4,37 @@ var cards = ["中立格子", "任意門", "佔領點交換", "前進", "受困�
  "獲得格子", "解除狀態", "湖水暴漲"];
 var choose = 0;
 var ranNum = cards.length;
-var str = 0;
 
 cards = getRandom(cards);
 
 function PickCard() {
-  buttonFont = document.getElementById("randomButton");
-  cardName = document.getElementById("cardName");
+  var card_div = document.getElementById("card");
+  var cardName = document.getElementById("cardName");
+  var buttonFont = document.getElementById("randomButton");
   console.log(choose)
   if (choose == cards.length) {    
     cards = getRandom(cards);
     choose = 0;
     console.log("wash");
+
+    cardName.innerHTML = " ";
+    card_div.innerHTML = `<img src='事件卡/back.jpg' alt='Playing Card'>`;
   }
   else {
-    str = 1;
-    console.log(cards);
     var card = cards[choose];
-    var card_div = document.getElementById("card");
-    card_div.innerHTML = `<img src='事件卡/${card}.jpg' alt='Playing Card'>`;
     choose++;
+    console.log(cards);
+
+    card_div.innerHTML = `<img src='事件卡/${card}.jpg' alt='Playing Card'>`;
+    cardName.innerHTML = card;
+    
   }
 
   if (choose == cards.length) {
     buttonFont.innerHTML = "洗牌";
-    cardName.innerHTML = "";
-    card_div.innerHTML = `<img src = '事件卡/back.jpg' alt='Playing Card'>'`
   }
   else {
     buttonFont.innerHTML = "抽牌";
-    cardName.innerHTML = card;
   }
 
 }
