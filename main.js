@@ -11,17 +11,17 @@ function PickCard() {
   var card_div = document.getElementById("card");
   var cardName = document.getElementById("cardName");
   var buttonFont = document.getElementById("randomButton");
-  console.log(choose)
+
   if (choose == cards.length) {    
-    cards = getRandom(cards);
     choose = 0;
-    console.log("wash");
+    cards = getRandom(cards);
 
     cardName.innerHTML = " ";
     card_div.innerHTML = `<img src='事件卡/back.jpg' alt='Playing Card'>`;
   }
   else {
     var card = cards[choose];
+    
     choose++;
     console.log(cards);
 
@@ -36,13 +36,14 @@ function PickCard() {
   else {
     buttonFont.innerHTML = "抽牌";
   }
-
 }
+
 function getRandom(cards) {
   var ranNum = cards.length;
   var ranCards = [];
   for (var i = 0; i < ranNum; i++) {
     var ran = Math.floor(Math.random() * (cards.length - i));
+
     ranCards.push(cards[ran]);
     cards[ran] = cards[cards.length - i - 1];
   }
