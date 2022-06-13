@@ -9,6 +9,7 @@ var card = 0;
 cards = getRandom(cards);
 
 function PickCard() {
+  var press = document.getElementById("press");
   var card_div = document.getElementById("pickCard");
   var cardName = document.getElementById("cardName");
   var buttonFont = document.getElementById("randomButton");
@@ -18,12 +19,19 @@ function PickCard() {
     cards = getRandom(cards);
 
     cardName.innerHTML = " ";
-    card_div.innerHTML = `<img src='事件卡/back.jpg' alt='Playing Card'>`;
+    card_div.innerHTML = `<input type="button" style="background-image:url(事件卡/back.png);width:278px;height:420px;background-size:contain;">`;
   }
   else {
     card = cards[choose];
 
     choose++;
+
+    if (choose == 1) {
+      press.innerHTML = "按一下圖片";
+    }
+    else {
+      press.innerHTML = "";
+    }
 
     card_div.innerHTML = `<input type="button" style="background-image:url(事件卡/${card}.jpg);width:278px;height:420px;background-size:contain;" onclick="detail();">`;
     cardName.innerHTML = card;
@@ -41,6 +49,7 @@ function PickCard() {
 function getRandom(cards) {
   var ranNum = cards.length;
   var ranCards = [];
+
   for (var i = 0; i < ranNum; i++) {
     var ran = Math.floor(Math.random() * (cards.length - i));
 
