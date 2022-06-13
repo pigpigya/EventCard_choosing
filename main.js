@@ -14,22 +14,23 @@ function PickCard() {
   var card_div = document.getElementById("pickCard");
   var cardName = document.getElementById("cardName");
   var buttonFont = document.getElementById("randomButton");
-  var remainCard = document.getElementById("remain");
-  var remain_num = 0;
+  var remain_num = document.getElementById("remain");
+  var remainCard = 0;
 
   if (choose == cards.length) {
     choose = 0;
     cards = getRandom(cards);
 
-    cardName.innerHTML = " ";
-    card_div.innerHTML = `<input type="button" style="background-image:url(事件卡/back.png);width:278px;height:420px;background-size:contain;">`;
+    cardName.innerHTML = "事件卡";
+    card_div.innerHTML = `<input type="button" style="background-image:url(事件卡/back.png);width:278px;height:420px;background-size:cover;">`;
+    remain_num.innerHTML = " ";
   }
   else {
     card = cards[choose];
 
     choose++;
     console.log(choose);
-    remain_num = "剩餘張數："+(35 - 1);
+    remainCard = "剩餘張數："+(35 - choose);
 
     if (choose == 1) {
       press.innerHTML = "按一下圖片";
@@ -38,8 +39,9 @@ function PickCard() {
       press.innerHTML = "";
     }
 
-    card_div.innerHTML = `<input type="button" style="background-image:url(事件卡/${card}.jpg);width:278px;height:420px;background-size:contain;" onclick="detail();">`;
+    card_div.innerHTML = `<input type="button" style="background-image:url(事件卡/${card}.jpg);width:278px;height:420px;background-size:cover;" onclick="detail();">`;
     cardName.innerHTML = card;
+    remain_num.innerHTML = remainCard;
 
   }
 

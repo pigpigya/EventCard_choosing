@@ -10,8 +10,25 @@
         flex-direction: column;
         align-items: center;
       }
-      img {
-        width: 300px;
+      .background{
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: -999;
+      }
+      .background img {
+        min-height: 100%;
+        min-width: 1000px;
+        width: 100%
+      }
+
+      @media screen and (max-width: 1000px) {
+        img.back {
+          left: 50%;
+          margin-left: -1000px;
+        }
       }
       .button{
         border-radius: 20px;
@@ -22,12 +39,14 @@
     </style>
   </head>
   <body>
-    <h1>事件卡</h1>
-    <h3 id="press"></h3>
+    <div class="background">
+        <img src="事件卡/bg.png">
+    </div>
+    <h1 id="cardName">歡迎來到</h1>
     <div id="pickCard">
       <input type="button" style="background-image:url(事件卡/back.png);width:278px;height:420px;background-size:contain;">
     </div>
-    <h2 id="cardName"> </h2>
+    <h3 id="press"></h3>
     <button id="randomButton" class="font button" onclick="PickCard();">抽牌</button>
     <p id="remain"></p>
     <script src="main.js"></script>
