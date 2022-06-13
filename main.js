@@ -22,7 +22,7 @@ function PickCard() {
     cards = getRandom(cards);
 
     cardName.innerHTML = "事件卡";
-    card_div.innerHTML = `<input type="button" style="background-image:url(事件卡/back.png);width:278px;height:420px;background-size:cover;">`;
+    card_div.innerHTML = `<input type="button" style="background-image:url(事件卡/back.png);width:278px;height:420px;background-size:cover;border-radius: 15px;">`;
     remain_num.innerHTML = " ";
   }
   else {
@@ -39,7 +39,7 @@ function PickCard() {
       press.innerHTML = "";
     }
 
-    card_div.innerHTML = `<input type="button" style="background-image:url(事件卡/${card}.jpg);width:278px;height:420px;background-size:cover;" onclick="detail();">`;
+    card_div.innerHTML = `<input type="button" style="background-image:url(事件卡/${card}.jpg);width:278px;height:420px;background-size:cover;border-radius: 15px;" onclick="detail();">`;
     cardName.innerHTML = card;
     remain_num.innerHTML = remainCard;
 
@@ -70,11 +70,11 @@ function detail() {
   var card_div = document.getElementById("pickCard");
   var card_detail = card + "敘述文字";
 
-  card_div.innerHTML = `<input type="button" style="background-image:url(卡片敘述/${card_detail}.jpg);width:278px;height:420px;background-size:contain;" onclick="toCard()">`;
+  card_div.innerHTML = `<input type="button" style="background-image:url(卡片敘述/${card_detail}.jpg);width:278px;height:420px;background-size:contain;border-radius: 15px;" onclick="toCard()">`;
 }
 
 function toCard() {
   var card_div = document.getElementById("pickCard");
 
-  card_div.innerHTML = `<input type="button" style="background-image:url(事件卡/${card}.jpg);width:278px;height:420px;background-size:contain;" onclick="detail();">`;
+  card_div.innerHTML = `<input type="button" style="background-image:url(事件卡/${card}.jpg);width:278px;height:420px;background-size:contain;border-radius: 15px;" onclick="detail();">`;
 }
